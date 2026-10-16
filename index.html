@@ -1,11 +1,177 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
   <title>免费编程书单</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
+
+  <style>
+    :root {
+      --theme-color: #3a7afe;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, "PingFang SC", "Microsoft YaHei", sans-serif;
+      background: #f6f8fb;
+      color: #333;
+      line-height: 1.7;
+    }
+
+    /* 侧边栏优化 */
+    .sidebar {
+      background: #ffffff;
+      border-right: 1px solid #e6e8ee;
+    }
+
+    .sidebar .app-name {
+      text-align: center;
+      padding: 1.2rem 0 1rem;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--theme-color);
+      letter-spacing: 1px;
+    }
+
+    .sidebar .sidebar-nav {
+      padding: 0.2rem 1.2rem 2rem;
+    }
+
+    .sidebar ul {
+      list-style: none;
+    }
+
+    .sidebar li a {
+      display: block;
+      color: #555;
+      padding: 0.4rem 0.8rem;
+      border-radius: 8px;
+      transition: all 0.2s ease;
+    }
+
+    .sidebar li a:hover {
+      background: #eef3ff;
+      color: var(--theme-color);
+      text-decoration: none;
+    }
+
+    .sidebar li.active > a {
+      background: var(--theme-color);
+      color: #ffffff;
+    }
+
+    /* 搜索框优化 */
+    .search {
+      margin: 0 1rem;
+    }
+
+    .search input {
+      border-radius: 20px;
+      border: 1px solid #e0e4ea;
+      padding: 0.55rem 1rem;
+      background-color: #f4f6fa;
+      transition: all 0.2s;
+    }
+
+    .search input:focus {
+      background: #fff;
+      border-color: var(--theme-color);
+      box-shadow: 0 0 0 3px rgba(58, 122, 254, 0.1);
+    }
+
+    /* 主内容区卡片化 */
+    .markdown-section {
+      max-width: 860px;
+      margin: 2rem auto;
+      padding: 2.5rem 3rem;
+      background: #ffffff;
+      border-radius: 16px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
+    }
+
+    .markdown-section h1,
+    .markdown-section h2 {
+      color: #222;
+    }
+
+    .markdown-section h2 {
+      display: inline-block;
+      border-bottom: 3px solid var(--theme-color);
+      padding-bottom: 0.2rem;
+      margin-top: 2.2rem;
+    }
+
+    .markdown-section h3 {
+      color: #333;
+    }
+
+    .markdown-section a {
+      color: var(--theme-color);
+    }
+
+    /* 表格优化 */
+    .markdown-section table {
+      border-collapse: separate;
+      border-spacing: 0;
+      width: 100%;
+      overflow: hidden;
+      border-radius: 10px;
+    }
+
+    .markdown-section table th {
+      background: #eef3ff;
+      color: #333;
+      font-weight: 600;
+    }
+
+    .markdown-section table th,
+    .markdown-section table td {
+      border: none;
+      border-bottom: 1px solid #edf0f5;
+      padding: 12px 16px;
+    }
+
+    .markdown-section table tr {
+      transition: background 0.15s;
+    }
+
+    .markdown-section table tr:hover {
+      background: #f8faff;
+    }
+
+    /* 代码块和引用优化 */
+    .markdown-section pre {
+      border-radius: 12px;
+      background: #1e2430;
+    }
+
+    .markdown-section blockquote {
+      border-left: 4px solid var(--theme-color);
+      background: #f4f7ff;
+      border-radius: 0 10px 10px 0;
+      padding: 0.6rem 1.2rem;
+      color: #555;
+    }
+
+    /* 滚动条美化 */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #c3ccd9;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #9aa6b8;
+    }
+  </style>
 </head>
+
 <body>
   <div id="app">加载中…</div>
 
@@ -14,13 +180,16 @@
       name: '免费编程书单',
       repo: '',
       loadSidebar: true,
-      subMaxLevel: 2,
+      subMaxLevel: 3,
+      auto2top: true,
       search: {
-        placeholder: '搜索书名',
-        noData: '没找到'
+        placeholder: '🔍 搜索书名',
+        noData: '😅 没找到这本书，换个关键词试试吧',
+        depth: 2
       }
     }
   </script>
+
   <script src="https://cdn.jsdelivr.net/npm/docsify@4"></script>
   <script src="https://cdn.jsdelivr.net/npm/docsify@4/lib/plugins/search.min.js"></script>
 </body>
